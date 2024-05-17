@@ -1,6 +1,5 @@
 import * as THREE from "../../libs/three.module.min.js";
 import {
-  BOARD_DEPTH,
   COLOR_BOARD_DARK,
   HORIZONTAL_GAP,
   SEGMENT_HEIGHT,
@@ -14,7 +13,7 @@ export default class Segment extends THREE.Object3D {
 
     this.geometry = new THREE.PlaneGeometry(SEGMENT_WIDTH, SEGMENT_HEIGHT);
     this.material = new THREE.MeshStandardMaterial({
-      color: 0xffffff,
+      color: COLOR_BOARD_DARK,
     });
     this.mesh = new THREE.Mesh(this.geometry, this.material);
     const triangle = new Triangle(0, 0);

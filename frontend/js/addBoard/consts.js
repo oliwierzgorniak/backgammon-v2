@@ -11,7 +11,7 @@ export const BOARD_WIDTH =
 export const BOARD_HEIGHT = 5;
 
 // colors
-export const COLOR1 = 0xffffff;
-export const COLOR2 = 0xe02c14;
+export const COLOR0 = 0xffffff;
+export const COLOR1 = 0xe02c14;
 export const COLOR_BOARD_DARK = 0x1f37d1;
 export const COLOR_BOARD_LIGHT = 0x96a1e8;

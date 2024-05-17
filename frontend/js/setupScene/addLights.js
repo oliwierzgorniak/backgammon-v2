@@ -2,7 +2,7 @@ import * as THREE from "../../libs/three.module.min.js";
 import Store from "../Store.js";
 
 export default function addLights() {
-  const pointLight = new THREE.PointLight(0xffffff, 100);
+  const pointLight = new THREE.PointLight(0xffffff, 7000);
   pointLight.position.set(0, 100, 0);
   Store.scene.add(pointLight);
 
