@@ -1,8 +1,10 @@
 import * as THREE from "../libs/three.module.min.js";
+import Store from "./Store.js";
+import addLights from "./setupScene/addLights.js";
 
 export default function setupScene() {
-  const scene = new THREE.Scene();
-  scene.background = new THREE.Color(0x14bda9);
+  Store.scene = new THREE.Scene();
+  Store.scene.background = new THREE.Color(0x14bda9);
 
   const camera = new THREE.PerspectiveCamera(
     75,
@@ -10,7 +12,11 @@ export default function setupScene() {
     0.1,
     1000
   );
-  camera.position.z = 5;
+  camera.position.z = 70;
+  camera.position.y = 100;
+  camera.lookAt(0, 0, 10);
+
+  addLights();
 
   const renderer = new THREE.WebGLRenderer();
   renderer.setSize(window.innerWidth, window.innerHeight);
@@ -18,7 +24,7 @@ export default function setupScene() {
 
   function animate() {
     requestAnimationFrame(animate);
-    renderer.render(scene, camera);
+    renderer.render(Store.scene, camera);
   }
   animate();
 }
