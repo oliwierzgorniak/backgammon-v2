@@ -1,4 +1,4 @@
-import * as THREE from "../../libs/three.module.min.js";
+import * as THREE from "three";
 import { COLOR0, COLOR1 } from "../addBoard/consts.js";
 import { CHECKER_HEIGHT, CHECKER_WIDTH } from "./consts.js";
 export default class Checker extends THREE.Object3D {
@@ -16,5 +16,13 @@ export default class Checker extends THREE.Object3D {
     this.mesh = new THREE.Mesh(this.geometry, this.material);
     this.mesh.position.set(x, CHECKER_HEIGHT / 2 + 0.5, z);
     this.add(this.mesh); // Add the mesh to the object
+
+    this.addClickListener();
+  }
+
+  addClickListener() {
+    this.mesh.addEventListener("click", () => {
+      console.log("it works");
+    });
   }
 }

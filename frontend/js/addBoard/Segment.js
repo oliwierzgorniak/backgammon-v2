@@ -1,4 +1,4 @@
-import * as THREE from "../../libs/three.module.min.js";
+import * as THREE from "three";
 import {
   COLOR_BOARD_DARK,
   HORIZONTAL_GAP,

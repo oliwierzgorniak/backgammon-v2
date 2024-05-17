@@ -1,4 +1,4 @@
-import * as THREE from "../../libs/three.module.min.js";
+import * as THREE from "three";
 import {
   BOARD_DEPTH,
   BOARD_HEIGHT,

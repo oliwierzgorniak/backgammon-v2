@@ -1,4 +1,4 @@
-import * as THREE from "../../libs/three.module.min.js";
+import * as THREE from "three";
 import Store from "../Store.js";
 
 export default function addLights() {
