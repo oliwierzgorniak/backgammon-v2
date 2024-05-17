@@ -25,6 +25,7 @@ const Store = {
     [],
     [1, 1],
   ],
+  dice: [],
 };
 
 export default Store;

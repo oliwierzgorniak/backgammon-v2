@@ -4,10 +4,10 @@ import getCheckerPosition from "./addCheckers/getCheckerPosition.js";
 
 export default function addCheckers() {
   Store.checkers.forEach((segment, i) => {
-    segment.forEach((_, checkerLevel) => {
+    segment.forEach((color, checkerLevel) => {
       const { x, y } = getCheckerPosition(i, checkerLevel);
 
-      const checker = new Checker(x, y);
+      const checker = new Checker(x, y, color);
       Store.scene.add(checker);
     });
   });
