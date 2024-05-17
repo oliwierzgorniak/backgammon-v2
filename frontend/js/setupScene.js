@@ -29,7 +29,10 @@ export default function setupScene() {
   Store.interactionManager = new InteractionManager(
     renderer,
     camera,
-    renderer.domElement
+    renderer.domElement,
+    {
+      cancelBubble: true,
+    }
   );
 
   function animate() {

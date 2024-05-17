@@ -7,7 +7,8 @@ export default function addCheckers() {
     segment.forEach((_, checkerLevel) => {
       const { x, y } = getCheckerPosition(i, checkerLevel);
 
-      Store.scene.add(new Checker(x, y));
+      const checker = new Checker(x, y);
+      Store.scene.add(checker);
     });
   });
 }
