@@ -12,8 +12,11 @@ export default class Segment extends THREE.Object3D {
     });
     this.mesh = new THREE.Mesh(this.geometry, this.material);
     const triangle = new Triangle(x, y);
+    triangle.position.y = 10;
+    console.log(triangle.position);
 
-    this.rotateX(-90);
+    this.rotation.x = -(Math.PI * 2) / 4;
+    this.position.y = 0.5;
 
     this.add(triangle.mesh); // Add the mesh to the object
     this.add(this.mesh); // Add the mesh to the object
