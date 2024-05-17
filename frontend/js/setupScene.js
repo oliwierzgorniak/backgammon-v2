@@ -1,4 +1,5 @@
 import * as THREE from "../libs/three.module.min.js";
+import { OrbitControls } from "../libs/OrbitControls.js";
 import Store from "./Store.js";
 import addLights from "./setupScene/addLights.js";
 
@@ -22,9 +23,13 @@ export default function setupScene() {
   renderer.setSize(window.innerWidth, window.innerHeight);
   document.body.appendChild(renderer.domElement);
 
+  const orbitControls = new OrbitControls(camera, renderer.domElement);
+
   function animate() {
     requestAnimationFrame(animate);
     renderer.render(Store.scene, camera);
+
+    orbitControls.update();
   }
   animate();
 }
