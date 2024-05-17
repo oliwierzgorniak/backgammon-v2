@@ -1,6 +1,8 @@
 import * as THREE from "three";
+import Store from "../Store.js";
 import { COLOR0, COLOR1 } from "../addBoard/consts.js";
 import { CHECKER_HEIGHT, CHECKER_WIDTH } from "./consts.js";
+
 export default class Checker extends THREE.Object3D {
   constructor(x, z, color = 0) {
     super();
@@ -21,6 +23,8 @@ export default class Checker extends THREE.Object3D {
   }
 
   addClickListener() {
+    Store.interactionManager.add(this.mesh);
+
     this.mesh.addEventListener("click", () => {
       console.log("it works");
     });
