@@ -1,23 +1,21 @@
 import * as THREE from "../../libs/three.module.min.js";
-import { COLOR_BOARD_LIGHT, SEGMENT_HEIGHT, SEGMENT_WIDTH } from "./consts.js";
+import { COLOR_BOARD_DARK, SEGMENT_HEIGHT, SEGMENT_WIDTH } from "./consts.js";
+import Triangle from "./Triangle.js";
 
 export default class Segment extends THREE.Object3D {
   constructor(x, y) {
     super();
 
-    const segmentShape = new THREE.Shape();
-    segmentShape.moveTo(x, y);
-    segmentShape.lineTo(x + SEGMENT_WIDTH, y);
-    segmentShape.lineTo(x + SEGMENT_WIDTH / 2, y + SEGMENT_HEIGHT);
-    // segmentShape.lineTo(x, y);
+    this.geometry = new THREE.PlaneGeometry(SEGMENT_WIDTH, SEGMENT_HEIGHT);
+    this.material = new THREE.MeshStandardMaterial({
+      color: COLOR_BOARD_DARK,
+    });
+    this.mesh = new THREE.Mesh(this.geometry, this.material);
+    const triangle = new Triangle(x, y);
 
     this.rotateX(-90);
 
-    this.geometry = new THREE.ShapeGeometry(segmentShape);
-    this.material = new THREE.MeshStandardMaterial({
-      color: COLOR_BOARD_LIGHT,
-    });
-    this.mesh = new THREE.Mesh(this.geometry, this.material);
+    this.add(triangle.mesh); // Add the mesh to the object
     this.add(this.mesh); // Add the mesh to the object
   }
 }
