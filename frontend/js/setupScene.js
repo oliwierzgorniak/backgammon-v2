@@ -1,6 +1,6 @@
 import * as THREE from "three";
 import { InteractionManager } from "three.interactive";
-import { OrbitControls } from "../libs/OrbitControls.js";
+import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 import Store from "./Store.js";
 import addLights from "./setupScene/addLights.js";
 

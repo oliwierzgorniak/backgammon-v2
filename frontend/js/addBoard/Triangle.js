@@ -1,9 +1,12 @@
 import * as THREE from "three";
+import Store from "../Store.js";
 import { COLOR_BOARD_LIGHT, SEGMENT_HEIGHT, SEGMENT_WIDTH } from "./consts.js";
 
 export default class Triangle extends THREE.Object3D {
-  constructor(x, y) {
+  constructor(x, y, index) {
     super();
+
+    this.userData.index = index;
 
     const segmentShape = new THREE.Shape();
     segmentShape.moveTo(x - SEGMENT_WIDTH / 2, y - SEGMENT_HEIGHT / 2);
@@ -17,5 +20,7 @@ export default class Triangle extends THREE.Object3D {
     this.mesh = new THREE.Mesh(this.geometry, this.material);
     this.mesh.position.set(0, 0, 0.5);
     this.add(this.mesh); // Add the mesh to the object
+
+    Store.triangles.push(this);
   }
 }
