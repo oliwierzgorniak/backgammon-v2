@@ -1,5 +1,5 @@
 const Store = {
-  moves: [],
+  movesDice: [],
   triangles: [],
   checkers: [],
   availableMoves: [],

@@ -7,7 +7,7 @@ import {
 } from "./consts.js";
 import Triangle from "./Triangle.js";
 import Store from "../Store.js";
-import getCheckerZPos from "./segment/getCheckerZPos.js";
+import handleCheckerMove from "./segment/handleCheckerMove.js";
 
 export default class Segment extends THREE.Object3D {
   constructor(x, z, index, isRotated = false) {
@@ -43,15 +43,7 @@ export default class Segment extends THREE.Object3D {
     Store.interactionManager.add(this.mesh);
     this.mesh.addEventListener("click", async (e) => {
       e.stopPropagation();
-      const target = e.target;
-      const parent = target.parent;
-      const { x } = parent.position;
-      Store.selectedChecker.position.x = x;
-      Store.selectedChecker.position.z = getCheckerZPos(parent);
-      Store.selectedChecker.userData.segment = parent.userData.index;
-
-      // const triangle = parent.children[0];
-      // triangle.material.color = new THREE.Color(0, 0, 0);
+      handleCheckerMove(e.target);
     });
   }
 }

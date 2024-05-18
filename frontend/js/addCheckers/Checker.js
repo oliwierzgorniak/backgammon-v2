@@ -3,6 +3,7 @@ import Store from "../Store.js";
 import { COLOR0, COLOR1 } from "../addBoard/consts.js";
 import { CHECKER_HEIGHT, CHECKER_WIDTH } from "./consts.js";
 import handleCheckerSelection from "./checker/handleCheckerSelection.js";
+import showAvailableMoves from "./checker/showAvailableMoves.js";
 
 export default class Checker extends THREE.Object3D {
   constructor(x, z, segment, level, color = 0) {
@@ -23,6 +24,7 @@ export default class Checker extends THREE.Object3D {
 
     this.userData.segment = segment;
     this.userData.level = level;
+    this.userData.color = color;
 
     this.addClickListener();
   }
@@ -32,6 +34,7 @@ export default class Checker extends THREE.Object3D {
     this.mesh.addEventListener("click", (e) => {
       e.stopPropagation();
       handleCheckerSelection(e.target, this.userData.originalColor);
+      showAvailableMoves(e.target.parent);
     });
   }
 }
