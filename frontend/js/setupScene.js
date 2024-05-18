@@ -1,5 +1,8 @@
 import * as THREE from "three";
-import { InteractionManager } from "three.interactive";
+import {
+  InteractionManager,
+  InteractionManagerOptions,
+} from "three.interactive";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 import Store from "./Store.js";
 import addLights from "./setupScene/addLights.js";
@@ -29,10 +32,7 @@ export default function setupScene() {
   Store.interactionManager = new InteractionManager(
     renderer,
     camera,
-    renderer.domElement,
-    {
-      cancelBubble: true,
-    }
+    renderer.domElement
   );
 
   function animate() {

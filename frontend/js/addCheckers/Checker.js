@@ -30,6 +30,7 @@ export default class Checker extends THREE.Object3D {
   addClickListener() {
     Store.interactionManager.add(this.mesh);
     this.mesh.addEventListener("click", (e) => {
+      e.stopPropagation();
       handleCheckerSelection(e.target, this.userData.originalColor);
     });
   }
