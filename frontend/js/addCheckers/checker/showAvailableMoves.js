@@ -2,42 +2,7 @@ import Store from "../../Store";
 import * as THREE from "three";
 import { CHECKER_SELECTED_COLOR } from "../consts";
 import { COLOR_BOARD_LIGHT } from "../../addBoard/consts";
-
-function getAvailableMoves(checker) {
-  const checkerColor = checker.userData.color;
-  const checkerSegment = checker.userData.segment;
-
-  let diceNumbers = [];
-  if (diceNumbers.length == 1) {
-    diceNumbers = Store.movesDice[0];
-  } else if (Store.movesDice.length > 1) {
-    diceNumbers =
-      Store.movesDice[0] == Store.movesDice[1]
-        ? [Store.movesDice[0]]
-        : Store.movesDice;
-  }
-
-  let availableMoves = [];
-
-  diceNumbers.forEach((n) => {
-    if (checkerColor == 0) {
-      const potentialMove = checkerSegment + n;
-      console.log(potentialMove, checkerSegment);
-      if (potentialMove <= 23) {
-        availableMoves.push(potentialMove);
-      }
-    } else {
-      const potentialMove = checkerSegment - n;
-      if (potentialMove >= 0) {
-        availableMoves.push(potentialMove);
-      }
-    }
-  });
-
-  // filtering occupied positions
-
-  return availableMoves;
-}
+import getAvailableMoves from "./showAvailbaleMoves/getAvailbleMoves";
 
 export default function showAvailableMoves(checker) {
   Store.availableMoves = getAvailableMoves(checker);

@@ -5,7 +5,7 @@ import { CHECKER_HEIGHT, CHECKER_WIDTH } from "./consts.js";
 import handleCheckerSelection from "./checker/handleCheckerSelection.js";
 import showAvailableMoves from "./checker/showAvailableMoves.js";
 
-export default class Checker extends THREE.Object3D {
+export default class Checker extends THREE.Mesh {
   constructor(x, z, segment, level, color = 0) {
     super();
 
@@ -19,7 +19,7 @@ export default class Checker extends THREE.Object3D {
       color: this.userData.originalColor,
     });
     this.mesh = new THREE.Mesh(this.geometry, this.material);
-    this.mesh.position.set(x, CHECKER_HEIGHT / 2 + 0.5, z);
+    this.position.set(x, CHECKER_HEIGHT / 2 + 0.5, z);
     this.add(this.mesh); // Add the mesh to the object
 
     this.userData.segment = segment;

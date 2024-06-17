@@ -1,6 +1,6 @@
 // sizes
 export const SEGMENT_WIDTH = 10;
-export const SEGMENT_HEIGHT = 50;
+export const SEGMENT_HEIGHT = 42;
 export const HORIZONTAL_GAP = 20;
 export const BENCH_WIDTH = 20;
 export const FRAME_WIDTH = 5;

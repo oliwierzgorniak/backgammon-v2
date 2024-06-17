@@ -2,7 +2,7 @@ import Store from "./Store.js";
 import Base from "./addBoard/Base.js";
 import Segment from "./addBoard/Segment.js";
 import { BENCH_WIDTH, SEGMENT_WIDTH } from "./addBoard/consts.js";
-import positionDict from "./addBoard/positionDict.js";
+import POSITION_DICT from "./addBoard/POSITION_DICT.js";
 
 export default function addBoard() {
   Store.scene.add(new Base());
@@ -13,7 +13,7 @@ export default function addBoard() {
         SEGMENT_WIDTH * x +
         ((BENCH_WIDTH / 2 - SEGMENT_WIDTH / 2) * x) / Math.abs(x);
 
-      const index = positionDict[z][x];
+      const index = POSITION_DICT[z][x];
       Store.scene.add(new Segment(xPosition, 0, index, z == 1));
     }
   }
