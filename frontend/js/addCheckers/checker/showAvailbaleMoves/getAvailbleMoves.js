@@ -20,7 +20,6 @@ export default function getAvailableMoves(checker) {
   diceNumbers.forEach((n) => {
     if (checkerColor == 0) {
       const potentialMove = checkerSegment + n;
-      console.log(potentialMove, checkerSegment);
       if (potentialMove <= 23) {
         availableMoves.push(potentialMove);
       }

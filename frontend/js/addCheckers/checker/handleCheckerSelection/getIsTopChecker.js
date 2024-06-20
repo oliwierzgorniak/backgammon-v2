@@ -5,5 +5,6 @@ export default function getIsTopChecker(target) {
   const checkersOnSegment = Store.checkers.filter(
     (checker) => checker.userData.segment === segment
   );
+  console.log(checkersOnSegment.length, level);
   return checkersOnSegment.length - 1 === level;
 }
